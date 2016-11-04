@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -71,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
     Calendar myCalendar;
     private SimpleDateFormat sdf;
     DatePickerDialog.OnDateSetListener date;
-
-
 
     private void showToast(String message) {
         Toast.makeText(getApplicationContext(),
@@ -315,6 +314,7 @@ public class MainActivity extends AppCompatActivity {
 
       //  Custom_row adapter=new Custom_row(this, tab,tab1,tab2,tab3,tab4,tab5);
        //plan.setAdapter(adapter);
+
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);

@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     private String tab3[]=new String[100];
     private String tab4[]=new String[100];
     private String tab5[]=new String[100];
+    private String tab1234[];
 
 
     String data,zmienna,zapytanie;
@@ -161,15 +162,104 @@ public class MainActivity extends AppCompatActivity {
         data = (sdf.format(myCalendar.getTime()));
     }
 
+    private void dane() {
+
+        try {
+
+            SQLiteDatabase sampleDB1 = this.openOrCreateDatabase(SAMPLE_DB_NAME, MODE_PRIVATE, null);
+            String tab12345[] = {"INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-15','14.00','aula A','ZINTUI0 1WA - Systemy inteligentne','Jaworski Rafał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-15','16.30','aula A','ZBSKUI0 1WA - Bezpieczeństwo systemów komputerowych','Ren Michał','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-16','10.45','D-3','ZINTUI0 1CA - Systemy inteligentne (2 semestr)','Jaworski Rafał','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-16','14.00','A1-24','ZINTUI0 1CB - Systemy inteligentne (1 semestr)','Jaworski Rafał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-16','08.15','aula A','ZLPIUI0 1WA - Logiczne podstawy informatyki','Kołowska-Gawiejnowicz Mirosława','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-16','10.45','D-1','ZLPIUI0 1CB - Logiczne podstawy informatyki (1 semestr)','Kołowska-Gawiejnowicz Mirosława','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-16','14.00','D-1','ZLPIUI0 1CA - Logiczne podstawy informatyki (2 semestr)','Kołowska-Gawiejnowicz Mirosława','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-22','10.45','aula C','ZLPIUI0 1WA - Logiczne podstawy informatyki','Kołowska-Gawiejnowicz Mirosława','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-22','14.00','A1-22','ZLPIUI0 1CB - Logiczne podstawy informatyki (1 semestr)','Kołowska-Gawiejnowicz Mirosława','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-22','14.00','A0-01','ZBSKUI0 1CA - Bezpieczeństwo systemów komputerowych (2 semestr)','Ren Michał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-10-22','16.30',NULL,'ZSEMUI0 1CA - Seminarium magisterskie 1 (1 semestr)','Wydział Wydział','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-05','14.00','A2-09','ZJANUI2 1CA - Język angielski 2','Grygiel Grzegorz','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-05','10.45','aula C','ZTAIUI0 1WA - Tesowanie aplikacji internetowych','Osiński Jędrzej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-05','14.00','A1-14','ZTAIUI0 1CB - Testowanie aplikacji internetowych (1 semestr)','Osiński Jędrzej','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-05','16.30','A1-14','ZTAIUI0 1CA - Testowanie internetowych (2 semestr)','Osiński Jędrzej','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-06','08.15','aula B','ZINTUI0 1WA - Systemy inteligentne','Jaworski Rafał','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-06','10.45','aula B','ZINTUI0 1WA - Systemy inteligentne','Jaworski Rafał','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-06','14.00',NULL,'ZSEMUI0 1CA - Seminarium magisterskie 1 (1 semestr)','Wydział Wydział','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-12','16.30','A2-24','ZJANUI2 1CA - Język angielski 2','Grygiel Grzegorz','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-12','14.00','aula A','ZBSKUI0 1WA - Bezpieczeństwo systemów komputerowych','Ren Michał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-12','10.45','aula A','ZASIUI0 1WA - Analiza wybranych systemów informatycznych','Wydział Wydział','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-13','08.15','A1-16','ZLPIUI0 1CA - Logiczne podstawy informatyki (2 semestr)','Kołowska-Gawiejnowicz Mirosława','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-13','10.45','aula A','ZTAIUI0 1WA - Tesowanie aplikacji internetowych','Osiński Jędrzej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-13','14.00','aula A','ZTAIUI0 1WA - Tesowanie aplikacji internetowych','Osiński Jędrzej','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-13','08.15','A1-22','ZBSKUI0 1CB - Bezpieczeństwo systemów komputerowych (1 semestr)','Ren Michał','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-26','14.00','aula A','ZAKWUI0 1WA - Algorytmy kwantowe','Grześkowiak Maciej','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-26','16.30','A1-16','ZAKWUI0 1CB - Algorytmy kwantowe (1 semestr)','Grześkowiak Maciej','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-26','10.45','aula A','ZASIUI0 1WA - Analiza wybranych systemów informatycznych','Wydział Wydział','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-27','08.15','aula B','ZAKWUI0 1WA - Algorytmy kwantowe','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-27','10.45','A1-18','ZTAIUI0 1CA - Testowanie internetowych (2 semestr)','Osiński Jędrzej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-27','14.00','A1-14','ZTAIUI0 1CB - Testowanie aplikacji internetowych (1 semestr)','Osiński Jędrzej','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-27','10.45','A1-24','ZBSKUI0 1CB - Bezpieczeństwo systemów komputerowych (1 semestr)','Ren Michał','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-11-27','14.00','A1-24','ZBSKUI0 1CA - Bezpieczeństwo systemów komputerowych (2 semestr)','Ren Michał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-10','14.00','A2-24','ZJANUI2 1CA - Język angielski 2','Grygiel Grzegorz','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-10','14.00','A1-22','ZINTUI0 1CB - Systemy inteligentne (1 semestr)','Jaworski Rafał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-10','16.30','A1-22','ZINTUI0 1CA - Systemy inteligentne (2 semestr)','Jaworski Rafał','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-10','10.45','aula A','ZASIUI0 1WA - Analiza wybranych systemów informatycznych','Wydział Wydział','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-11','08.15','A1-22','ZAKWUI0 1CB - Algorytmy kwantowe (1 semestr)','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-11','10.45','aula A','ZAKWUI0 1WA - Algorytmy kwantowe','Grześkowiak Maciej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-11','14.00','A1-18','ZAKWUI0 1CA - Algorytmy kwantowe (2 semestr)','Grześkowiak Maciej','16.15');",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-11','16.30','A0-01','ZAKWUI0 1CA - Algorytmy kwantowe (2 semestr)','Grześkowiak Maciej','18.45');",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-11','14.00',NULL,'ZSEMUI0 1CA - Seminarium magisterskie 1 (1 semestr)','Wydział Wydział','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-17','08.15','A1-16','ZAKWUI0 1CA - Algorytmy kwantowe (2 semestr)','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-17','10.45','A1-16','ZAKWUI0 1CA - Algorytmy kwantowe (2 semestr)','Grześkowiak Maciej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-18','10.45','A2-24','ZJANUI2 1CA - Język angielski 2','Grygiel Grzegorz','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-18','08.15','aula A','ZLPIUI0 1WA - Logiczne podstawy informatyki','Kołowska-Gawiejnowicz Mirosława','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-18','10.45','A1-18','ZLPIUI0 1CB - Logiczne podstawy informatyki (1 semestr)','Kołowska-Gawiejnowicz Mirosława','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2016-12-18','14.00','aula A','ZBSKUI0 1WA - Bezpieczeństwo systemów komputerowych','Ren Michał','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-14','08.15','A1-14','ZAKWUI0 1CB - Algorytmy kwantowe (1 semestr)','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-14','14.00','D-1','ZLPIUI0 1CA - Logiczne podstawy informatyki (2 semestr)','Kołowska-Gawiejnowicz Mirosława','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-14','16.30','A1-16','ZLPIUI0 1CA - Logiczne podstawy informatyki (2 semestr)','Kołowska-Gawiejnowicz Mirosława','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-14','10.45','aula A','ZASIUI0 1WA - Analiza wybranych systemów informatycznych','Wydział Wydział','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-15','10.45','A2-24','ZJANUI2 1CA - Język angielski 2','Grygiel Grzegorz','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-15','08.15','aula A','ZLPIUI0 1WA - Logiczne podstawy informatyki','Kołowska-Gawiejnowicz Mirosława','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-15','10.45','A1-24','ZLPIUI0 1CB - Logiczne podstawy informatyki (1 semestr)','Kołowska-Gawiejnowicz Mirosława','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-15','14.00','A1-24','ZLPIUI0 1CA - Logiczne podstawy informatyki (2 semestr)','Kołowska-Gawiejnowicz Mirosława','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-15','14.00',NULL,'ZSEMUI0 1CA - Seminarium magisterskie 1 (1 semestr)','Wydział Wydział','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-28','08.15','aula C','ZAKWUI0 1WA - Algorytmy kwantowe','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-28','16.30','A1-14','ZAKWUI0 1CB - Algorytmy kwantowe (1 semestr)','Grześkowiak Maciej','18.45')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-28','10.45','aula C','ZLPIUI0 1WA - Logiczne podstawy informatyki','Kołowska-Gawiejnowicz Mirosława','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-28','14.00','A1-14','ZLPIUI0 1CB - Logiczne podstawy informatyki (1 semestr)','Kołowska-Gawiejnowicz Mirosława','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-29','08.15','A1-16','ZAKWUI0 1CA - Algorytmy kwantowe (2 semestr)','Grześkowiak Maciej','10.30')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-29','10.45','aula A','ZAKWUI0 1WA - Algorytmy kwantowe','Grześkowiak Maciej','13.00')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-29','14.00','A1-14','ZAKWUI0 1CB - Algorytmy kwantowe (1 semestr)','Grześkowiak Maciej','16.15')",
+                    "INSERT INTO Plan_zajec(Data,Czas_s,Sala,Zajecia,Wykladowca,Godzina_f) VALUES ('2017-01-29','08.15',NULL,'ZSEMUI0 1CA - Seminarium magisterskie 1 (1 semestr)','Wydział Wydział','10.30')"};
+
+            for (int i = 0; i <= 66; i = i + 0) {
+                if (!tab12345.equals("")) {
+                    sampleDB1.execSQL(tab12345[i]);
+                }
+
+                i++;
+            }
+
+            sampleDB1.close();
+            Log.i("myTag", "d" + tab12345[0]);
+            Log.i("myTag1", "d" + tab12345[1]);
+        }catch (Exception e)
+        {
+            Log.i("myTag",""+e);
+        }
+
+    }
 
     private void ToDataBase() {
         try {
             SQLiteDatabase sampleDB = this.openOrCreateDatabase(SAMPLE_DB_NAME, MODE_PRIVATE, null);
             sampleDB.execSQL("CREATE TABLE IF NOT EXISTS Plan_zajec (ID  AUTO_INCREMENT, Data DATE,Czas_s VARCHAR,Sala VARCHAR,Zajecia VARCHAR,Wykladowca VARCHAR,Godzina_f VARCHAR)");
             // showToast("połączenie udało się");
-
+            sampleDB.close();
         } catch (Exception e) {
             showToast("błąd połączenia");
+
         }
 
     }
@@ -235,6 +325,9 @@ public class MainActivity extends AppCompatActivity {
 
         ToDataBase();
         readsqlLight1();
+        if(tab[0]==null) {
+           dane();
+        }
 
         tryb.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             data = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 
             zapytanie = "Select * from Plan_zajec where Data >='" + data + "'";
+            Log.i("myTag",""+data);
 
             Cursor c = sampleDB.rawQuery(zapytanie, null);
             int i = 0;

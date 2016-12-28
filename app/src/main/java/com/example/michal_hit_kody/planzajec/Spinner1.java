@@ -34,6 +34,6 @@ public class Spinner1 {
         checkBox.setChecked(tab1[position]);
 
         return Spinner1;
-
-    }*/
+*/
+ //   }
 }
